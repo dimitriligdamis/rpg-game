@@ -13,15 +13,23 @@ const app = {
   drawBoard: function () {
     const board = document.getElementById("board");
 
-    for (let x = 0; x < 4; x++) {
+    //* Double for loop to create row and cell in the board
+    for (let y = 0; y < 4; y++) {
       const newRow = document.createElement("div");
       newRow.classList.add("row");
-      for (let y = 0; y < 6; y++) {
+      for (let x = 0; x < 6; x++) {
         const newCell = document.createElement("div");
         newCell.classList.add("cell");
+
+        //* Condition to add player and target classname
+        if (x === app.targetCell.x && y === app.targetCell.y) {
+          newCell.classList.add("targetCell");
+        }
+        if (x === app.player.x && y === app.player.y) {
+          newCell.classList.add("player");
+        }
         newRow.appendChild(newCell);
       }
-
       board.appendChild(newRow);
     }
   },

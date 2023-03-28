@@ -1,15 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #ddd;
 }
-
-.player {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 15px 0 15px 35px;
-  border-color: transparent transparent transparent blue;
-
-  margin: 20px;
+#board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
 }
 
 .row {
@@ -19,4 +19,17 @@ body {
   border: 1px solid black;
   width: 70px;
   height: 70px;
+}
+
+.player {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 35px;
+  border-color: transparent transparent transparent blue;
+  margin: 20px;
+}
+
+.targetCell {
+  background-color: aquamarine;
 }
