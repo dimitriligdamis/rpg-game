@@ -34,6 +34,18 @@ const app = {
     }
   },
 
+  clearBoard: function () {
+    const board = document.getElementById("board");
+    while (board.firstChild) {
+      board.removeChild(board.firstChild);
+    }
+  },
+
+  redrawBoard: function () {
+    app.clearBoard();
+    app.drawBoard();
+  },
+
   init: function () {
     console.log("init !");
     app.drawBoard();
@@ -41,14 +53,3 @@ const app = {
 };
 
 document.addEventListener("DOMContentLoaded", app.init);
-
-{
-  /* <div class="row">
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-</div> */
-}
