@@ -26,7 +26,7 @@ const app = {
           newCell.classList.add("targetCell");
         }
         if (x === app.player.x && y === app.player.y) {
-          newCell.classList.add("player");
+          newCell.classList.add("player", `player--${app.player.direction}`);
         }
         newRow.appendChild(newCell);
       }
@@ -44,6 +44,42 @@ const app = {
   redrawBoard: function () {
     app.clearBoard();
     app.drawBoard();
+  },
+
+  turnLeft: function () {
+    switch (app.player.direction) {
+      case "right":
+        app.player.direction = "up";
+        break;
+      case "up":
+        app.player.direction = "left";
+        break;
+      case "left":
+        app.player.direction = "down";
+        break;
+      case "down":
+        app.player.direction = "right";
+        break;
+    }
+    app.redrawBoard();
+  },
+
+  turnRight: function () {
+    switch (app.player.direction) {
+      case "right":
+        app.player.direction = "down";
+        break;
+      case "down":
+        app.player.direction = "left";
+        break;
+      case "left":
+        app.player.direction = "up";
+        break;
+      case "up":
+        app.player.direction = "right";
+        break;
+    }
+    app.redrawBoard();
   },
 
   init: function () {

@@ -21,6 +21,9 @@ body {
   height: 70px;
 }
 
+.targetCell {
+  background-color: aquamarine;
+}
 .player {
   width: 0;
   height: 0;
@@ -30,6 +33,15 @@ body {
   margin: 20px;
 }
 
-.targetCell {
-  background-color: aquamarine;
+.player--right {
+  transform: rotate(0);
+}
+.player--up {
+  transform: rotate(-90deg);
+}
+.player--down {
+  transform: rotate(180deg);
+}
+.player--left {
+  transform: rotate(90deg);
 }
