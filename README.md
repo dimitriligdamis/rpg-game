@@ -1,7 +1,14 @@
 # Challenge RPG
 
-# Challenge RPG
+## Preview
 
-# Challenge RPG
+![Preview website](./img/preview.png)
 
-On va refaire le jeu du personnage qui cherche sa mine d'or!
+## How to play
+
+Use arrow key : up, left & right to move
+
+## Built with
+
+- JS vanilla
+- HTML & CSS

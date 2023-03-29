@@ -26,25 +26,28 @@ body {
 }
 
 .targetCell {
-  background-color: aquamarine;
+  z-index: 1;
+  background-color: red;
+  opacity: 0.4;
 }
-.player::before {
-  content: "=>";
-  font-size: 3rem;
+.player {
+  background: url("../img/sprite.png") repeat-y;
+  background-position: top center;
+  background-size: 59px;
 }
 
 .player--right {
-  transform: rotate(0);
+  background-position-y: 134px;
 }
 
 .player--down {
-  transform: rotate(90deg);
+  background-position-y: 0px;
 }
 .player--left {
-  transform: rotate(180deg);
+  background-position-y: 202px;
 }
 .player--up {
-  transform: rotate(270deg);
+  background-position-y: 67px;
 }
 
 #reset {

@@ -15,6 +15,8 @@ const app = {
     cell: 6,
   },
 
+  counter: 0,
+
   gameOver: false,
 
   isGameOver: function () {
@@ -24,7 +26,7 @@ const app = {
     ) {
       app.gameOver = true;
       setTimeout(() => {
-        alert("Game over");
+        alert(`You win in ${app.counter} move`);
       });
     }
   },
@@ -37,6 +39,7 @@ const app = {
       app.player.y = 0;
       app.player.direction = "right";
       app.gameOver = false;
+      app.counter = 0;
       app.redrawBoard();
     });
   },
@@ -149,12 +152,15 @@ const app = {
     switch (e.key) {
       case "ArrowUp":
         app.moveForward();
+        app.counter++;
         break;
       case "ArrowLeft":
         app.turnLeft();
+        app.counter++;
         break;
       case "ArrowRight":
         app.turnRight();
+        app.counter++;
         break;
       default:
         break;
