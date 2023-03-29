@@ -10,14 +10,19 @@ const app = {
     y: 3,
   },
 
+  boardSize: {
+    row: 4,
+    cell: 6,
+  },
+
   drawBoard: function () {
     const board = document.getElementById("board");
 
     //* Double for loop to create row and cell in the board
-    for (let y = 0; y < 4; y++) {
+    for (let y = 0; y < app.boardSize.row; y++) {
       const newRow = document.createElement("div");
       newRow.classList.add("row");
-      for (let x = 0; x < 6; x++) {
+      for (let x = 0; x < app.boardSize.cell; x++) {
         const newCell = document.createElement("div");
         newCell.classList.add("cell");
 
@@ -79,6 +84,29 @@ const app = {
         app.player.direction = "right";
         break;
     }
+    app.redrawBoard();
+  },
+
+  moveForward: function () {
+    if (
+      app.player.direction === "right" &&
+      app.player.x < app.boardSize.cell - 1
+    ) {
+      app.player.x++;
+    }
+    if (app.player.direction === "left" && app.player.x > 0) {
+      app.player.x--;
+    }
+    if (app.player.direction === "up" && app.player.y > 0) {
+      app.player.y--;
+    }
+    if (
+      app.player.direction === "down" &&
+      app.player.y < app.boardSize.row - 1
+    ) {
+      app.player.y++;
+    }
+
     app.redrawBoard();
   },
 
