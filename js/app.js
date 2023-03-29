@@ -65,6 +65,8 @@ const app = {
       case "down":
         app.player.direction = "right";
         break;
+      default:
+        break;
     }
     app.redrawBoard();
   },
@@ -82,6 +84,8 @@ const app = {
         break;
       case "up":
         app.player.direction = "right";
+        break;
+      default:
         break;
     }
     app.redrawBoard();
@@ -109,10 +113,26 @@ const app = {
 
     app.redrawBoard();
   },
+  handleKeypress: function (e) {
+    switch (e.key) {
+      case "ArrowUp":
+        app.moveForward();
+        break;
+      case "ArrowLeft":
+        app.turnLeft();
+        break;
+      case "ArrowRight":
+        app.turnRight();
+        break;
+      default:
+        break;
+    }
+  },
 
   init: function () {
     console.log("init !");
     app.drawBoard();
+    document.addEventListener("keydown", app.handleKeypress);
   },
 };
 
