@@ -1,15 +1,19 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #ddd;
+  background: url("../img/bg-main.jpg") no-repeat center center / cover;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
 }
 #board {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 5rem;
+  display: inline-block;
+  background: url("../img/area.png") no-repeat center center / cover;
 }
 
 .row {
@@ -24,13 +28,9 @@ body {
 .targetCell {
   background-color: aquamarine;
 }
-.player {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 15px 0 15px 35px;
-  border-color: transparent transparent transparent blue;
-  margin: 20px;
+.player::before {
+  content: "=>";
+  font-size: 3rem;
 }
 
 .player--right {
@@ -45,4 +45,24 @@ body {
 }
 .player--up {
   transform: rotate(270deg);
+}
+
+#reset {
+  user-select: none;
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #6fae99;
+  border: none;
+  padding: 0.5rem 3rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#reset:hover {
+  background: linear-gradient(#e66465, #9198e5);
 }

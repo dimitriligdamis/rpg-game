@@ -15,6 +15,32 @@ const app = {
     cell: 6,
   },
 
+  gameOver: false,
+
+  isGameOver: function () {
+    if (
+      app.player.y === app.targetCell.y &&
+      app.player.x === app.targetCell.x
+    ) {
+      app.gameOver = true;
+      setTimeout(() => {
+        alert("Game over");
+      });
+    }
+  },
+
+  handleReset: function () {
+    const resetBtn = document.getElementById("reset");
+
+    resetBtn.addEventListener("click", () => {
+      app.player.x = 0;
+      app.player.y = 0;
+      app.player.direction = "right";
+      app.gameOver = false;
+      app.redrawBoard();
+    });
+  },
+
   drawBoard: function () {
     const board = document.getElementById("board");
 
@@ -35,7 +61,8 @@ const app = {
         }
         newRow.appendChild(newCell);
       }
-      board.appendChild(newRow);
+
+      board.append(newRow);
     }
   },
 
@@ -49,6 +76,7 @@ const app = {
   redrawBoard: function () {
     app.clearBoard();
     app.drawBoard();
+    app.isGameOver();
   },
 
   turnLeft: function () {
@@ -113,7 +141,11 @@ const app = {
 
     app.redrawBoard();
   },
+
   handleKeypress: function (e) {
+    if (app.gameOver) {
+      return;
+    }
     switch (e.key) {
       case "ArrowUp":
         app.moveForward();
@@ -131,7 +163,8 @@ const app = {
 
   init: function () {
     console.log("init !");
-    app.drawBoard();
+    app.handleReset();
+    app.redrawBoard();
     document.addEventListener("keydown", app.handleKeypress);
   },
 };
